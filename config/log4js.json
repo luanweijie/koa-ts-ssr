@@ -1,0 +1,33 @@
+{
+    "appenders": {
+        "out": {
+            "type": "console"
+        }
+    },
+    "categories": {
+        "default": {
+            "appenders": [
+                "out"
+            ],
+            "level": "debug"
+        },
+        "http": {
+            "appenders": [
+                "out"
+            ],
+            "level": "debug"
+        },
+        "utils": {
+            "appenders": [
+                "out"
+            ],
+            "level": "debug"
+        },
+        "middlewares": {
+            "appenders": [
+                "out"
+            ],
+            "level": "debug"
+        }
+    }
+}
