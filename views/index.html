@@ -3,7 +3,8 @@
   <title>Blog</title>
 </head>
 <body>
-  {% for post in posts %}
-  {% endfor %}
+  <% posts.forEach(function(post){ %>
+    <% post %>
+  <% }); %>
 </body>
 </html>

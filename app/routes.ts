@@ -12,7 +12,6 @@ const posts: Array<string>[] = [];
 router.get('/healthcheck', async ctx => ctx.body = 'OK');
 
 router.get('/', list)
-  .get('/test', test)
   .get('/post/new', add)
   .get('/post/:id', show)
   .post('/post', create);
@@ -26,14 +25,6 @@ async function list(ctx: Context)  {
   await ctx.render('list', { posts: posts });
 }
 
-async function test(ctx: Context)  {
-  await ctx.render(
-    'test', 
-    { 
-      title: 'test',
-      content: 'test'
-   });
-}
 
 /**
  * Show creation form.

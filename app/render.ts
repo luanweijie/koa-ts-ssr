@@ -7,5 +7,5 @@ import * as path from 'path';
 
 export const render = views(path.join(__dirname, '/../views'), {
     extension: 'html',
-    map: { html: 'swig' }
+    map: { html: 'ejs' }
 });
