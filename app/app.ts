@@ -1,9 +1,10 @@
-import * as Koa from 'koa';
-import * as koaBody from 'koa-body';
-import * as cors from '@koa/cors';
-import * as log4js from 'koa-log4';
+import Koa = require('koa');
+import koaBody = require('koa-body');
+import proxy  = require('koa-proxies');
+import bodyParser = require("koa-bodyparser");
+import serve = require('koa-static');
+import log4js = require('koa-log4');
 
-import * as serve from 'koa-static';
 
 import { config } from './config';
 import { routes } from './routes';
@@ -13,10 +14,15 @@ import { render } from './render';
 const logger = getLogger('app');
 const app = new Koa();
 
+app.use(proxy('/api', {
+    target: 'http://localhost:9090',    
+    changeOrigin: true,
+    rewrite: path => path
+}))
 app.use(log4js.koaLogger(getLogger('http')));
 app.use(render);
 app.use(koaBody());
-app.use(cors());
+app.use(bodyParser())
 app.use(routes);
 app.use(serve('dist/views'));
 

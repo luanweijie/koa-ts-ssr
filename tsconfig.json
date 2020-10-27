@@ -8,5 +8,5 @@
   },
   "types": ["mocha"],
   "include": ["./**/*.ts", "./**/*.js, "],
-  "exclude": ["node_modules", "dist", "test"]
+  "exclude": ["node_modules", "dist",]
 }
